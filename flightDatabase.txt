@@ -35,3 +35,14 @@ CREATE TABLE Accountinfo
   );
   INSERT INTO Accountinfo(accountNR,accountName,accountPW,accountEmail,pastFlights)
   VALUES('1','Indriði Arnaldsson','Lykilorðið mitt er þetta','ina23@hi.is','1');
+  CREATE TABLE ReviewInfo
+    (
+      ReviewNR INT PRIMARY KEY,
+      reviewerAcc INT,
+      review VARCHAR (1000),
+      reviewerFlight INT,
+      FOREIGN KEY (reviewerAcc) REFERENCES Accountinfo(accountNR),
+      FOREIGN KEY (reviewerFlight) REFERENCES FlightDB(FlightID)
+    );
+    INSERT INTO ReviewInfo(ReviewNR,reviewerAcc,review,reviewerFlight)
+    VALUES('1','1','þetta flug var verra en þetta gagnasafn','1');
